@@ -1,0 +1,69 @@
+* {
+	box-sizing: border-box;
+	border: 1px solid orange;
+}
+
+.board {
+	background: #CCC;
+	text-align: center;
+	height: 100vh;
+	font-family: 'Kavivanar', cursive;
+	background-image: url(https://images.pexels.com/photos/1579/hand-notes-holding-things.jpg?h=350&auto=compress&cs=tinysrgb);
+	background-size: cover;
+}
+.column-container {
+	display: flex;
+	max-width: 1360px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+
+}
+.column {
+	flex: 1;
+    justify-content: space-around;
+    margin: 20px;
+    min-width: 25%;
+    max-width: 30%;
+    background: rgba(0,0,0,0.5);
+    color: #FFF;
+}
+button {
+	background: orange;
+	border-radius: 20px;
+	padding: 5px 10px;
+	font-weight: 900;
+}
+.btn-delete {
+	position: relative;
+	top: -70px;
+	left: 210px;
+}
+.column-card-list {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	flex-wrap: wrap;
+}
+.card {
+	justify-content: space-around;
+	flex: 1;
+	margin: 10px;
+	min-width: 40%;
+	border: 1px solid black;
+	background-color: rgba(0,0,0,0.7);
+}
+.card-delete {
+	position: relative;
+	top: 5px;
+	left: 170px;
+
+}
+.column-id {
+	font-size: 12px;
+	text-align: right;
+	padding: 0 10px;
+}
+.card-description {
+	padding: 10px;
+}
