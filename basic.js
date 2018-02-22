@@ -9,61 +9,6 @@ function randomString() {
     return str;
 }
 
-
-function Board(boardName) {
-    var self = this;
-
-    this.id = randomString();
-    this.boardName = boardName;
-    this.$element = createBoard();
-
-    function createBoard() {
-        var $board = $('<div>').addClass('board');
-        var $boardId = $('<p>').addClass('board-id').text("Id: " + self.id);
-        var $boardTitle = $('<h1>').addClass('board-title').text(self.boardName);
-        var $boardDelete = $('<button>').addClass('btn-board-delete').text(' x ');
-        var $boardAddColumn = $('<button>').addClass('add-column').text('Add a column');
-    
-        $boardDelete.click(function() {
-        self.removeBoard();
-        });
-
-        $boardAddColumn.click(function(event) {
-        self.addColumn(new Column(prompt("Enter the name of the column")));
-        });
-
-        $board.append($board.Title)
-        .append($boardDelete)
-        .append($boardAddColumn)
-        .append($boardId);
-
-        return $board;
-    }
-}
-
-Board.prototype = {
-    addColumn: function(column) {
-        this.$element.children('div').append(column.$element);
-    },
-    removeBoard: function() {
-        this.$element.remove();
-    }
-};
-
-var content = {
-    name: 'Kanban',
-    addBoard: function(board) {
-        this.$element.append(board.$element);
-    },
-    $element: $('#board-container')
-};
-
-$('.create-board')
-  .click(function() {
-    var board = new Board(name);
-        content.addBoard(board);
-  });
-
 function Column(name) {
 	var self = this;
 
@@ -137,7 +82,7 @@ Card.prototype = {
 };
 
 
-var bboard = {
+var board = {
 	name: 'Kanban Board',
 	addColumn: function(column) {
 		this.$element.append(column.$element);
@@ -157,7 +102,7 @@ $('.create-column')
   .click(function() {
 	var name = prompt('Enter a column name');
 	var column = new Column(name);
-    	bboard.addColumn(column);
+    	board.addColumn(column);
   });
 
 $('.column-card-list').sortable();
@@ -168,9 +113,9 @@ var doingColumn = new Column('Doing');
 var doneColumn = new Column('Done');
 
 // ADDING COLUMNS TO THE BOARD
-bboard.addColumn(todoColumn);
-bboard.addColumn(doingColumn);
-bboard.addColumn(doneColumn);
+board.addColumn(todoColumn);
+board.addColumn(doingColumn);
+board.addColumn(doneColumn);
 
 // CREATING CARDS
 var card1 = new Card('New task');
