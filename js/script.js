@@ -162,6 +162,13 @@ $('.create-column')
 
 $('.column-card-list').sortable();
 
+$('.add-column')
+  .click(function() {
+    var name = prompt('Enter a column name');
+    var column = new Column(name);
+        board.addColumn(column);
+  });	
+
 // CREATING COLUMNS
 var todoColumn = new Column('To do');
 var doingColumn = new Column('Doing');
