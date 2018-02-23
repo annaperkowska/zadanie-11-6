@@ -14,7 +14,7 @@ function Board(boardName) {
     var self = this;
 
     this.id = randomString();
-    this.boardName = boardName;
+    this.boardName = prompt('Enter the board name');
     this.$element = createBoard();
 
     function createBoard() {
@@ -22,8 +22,9 @@ function Board(boardName) {
         var $boardId = $('<p>').addClass('board-id').text("Id: " + self.id);
         var $boardTitle = $('<h1>').addClass('board-title').text(self.boardName);
         var $boardDelete = $('<button>').addClass('btn-board-delete').text(' x ');
-        var $boardAddColumn = $('<button>').addClass('add-column').text('Add a column');
-    
+        var $boardAddColumn = $('<button>').addClass('create-column').text('Add a column');
+        var $boardContainer = $('<div>').addClass('column-container');
+
         $boardDelete.click(function() {
         self.removeBoard();
         });
@@ -32,10 +33,11 @@ function Board(boardName) {
         self.addColumn(new Column(prompt("Enter the name of the column")));
         });
 
-        $board.append($board.Title)
+        $board.append($boardTitle)
         .append($boardDelete)
         .append($boardAddColumn)
-        .append($boardId);
+        .append($boardId)
+        .append($boardContainer);
 
         return $board;
     }
@@ -62,6 +64,14 @@ $('.create-board')
   .click(function() {
     var board = new Board(name);
         content.addBoard(board);
+  });
+
+
+$('.add-column')
+  .click(function() {
+    var name = prompt('Enter a column name');
+    var column = new Column(name);
+        boardContainer.addColumn(column);
   });
 
 function Column(name) {

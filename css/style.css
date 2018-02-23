@@ -5,11 +5,15 @@
 body {
 	background-image: url(https://images.pexels.com/photos/1579/hand-notes-holding-things.jpg?h=350&auto=compress&cs=tinysrgb);
 	background-size: cover;
+	margin: 0;
 }
 .board {
 	text-align: center;
 	font-family: 'Kavivanar', cursive;
-	
+	border: 3px solid black;
+    background: rgba(0,0,0,0.3);
+    margin: 30px;
+    position: relative;
 }
 .board h1 {
 	padding-bottom: 20px;
@@ -24,13 +28,13 @@ body {
 .column {
 	flex: 1;
     justify-content: space-around;
-    margin: 20px;
-    min-width: 25%;
+    margin: 30px auto;
+    min-width: 320px;
     max-width: 30%;
     background: rgba(0,0,0,0.5);
     color: orange;
-    border-style: groove;
-    border-color: black;
+    border: 2px solid black;
+    position: relative;
 }
 button {
 	background: orange;
@@ -40,10 +44,10 @@ button {
 	border-style: inset;
 	border-color: black;
 }
-.btn-delete {
-	position: relative;
-	top: -70px;
-	left: 210px;
+.btn-delete, .btn-board-delete {
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
 .column-card-list {
 	list-style-type: none;
@@ -70,11 +74,37 @@ button {
 .add-card {
 	margin: 0 auto;
 }
-.column-id {
+.column-id, .board-id {
 	font-size: 12px;
 	text-align: right;
 	padding: 0 10px;
+	color: orange;
 }
 .card-description {
 	padding: 20px 30px;
 }
+.create-board {
+	display: block;
+	margin: 30px auto;
+}
+.footer {
+	background: rgba(0,0,0,0.5);
+    color: orange;
+    margin: 50px auto 0;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Kavivanar', cursive;
+    border-top: 2px solid black;
+}
+@media (max-width: 450px) {
+	.board {
+		min-width: 300px;
+	}
+	.column {
+		max-width: 320px;
+	}
+	.card {
+		min-width: 300px;
+	}
+}
+
